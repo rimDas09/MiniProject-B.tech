@@ -1,0 +1,28 @@
+﻿<div class="card mt-4">
+    <h4 class="card-header"></h4>
+    <div class="card-body">
+        <p class="mb-1">All Student's details</p>
+        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+        <ul *ngIf="users">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">User ID</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users">
+                        <th>{{ user.id }}</th>
+                        <td>{{ user.firstName }}</td>
+                        <td>{{ user.username}}</td>
+                        <td>
+                           <button type="button" (click)="deleteUser(user.id)" >Delete</button>
+                        </td>
+                </tbody>
+              </table>
+        </ul>
+    </div>
+</div>
